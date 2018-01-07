@@ -1,4 +1,7 @@
 package io.github.aarvedahl.webshop.repository;
 
-public interface ArticleRepository {
+import io.github.aarvedahl.webshop.jpa.Article;
+import org.springframework.data.jpa.repository.JpaRepository;
+
+public interface ArticleRepository extends JpaRepository<Article, Long> {
 }
