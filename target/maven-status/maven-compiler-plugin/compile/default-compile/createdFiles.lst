@@ -1,1 +1,9 @@
+io\github\aarvedahl\webshop\repository\ArticleRepository.class
+io\github\aarvedahl\webshop\controllers\ArticleController.class
+io\github\aarvedahl\webshop\jpa\Article.class
+io\github\aarvedahl\webshop\controllers\OrderController.class
+io\github\aarvedahl\webshop\dto\Userdto.class
 io\github\aarvedahl\webshop\WebshopApplication.class
+io\github\aarvedahl\webshop\controllers\UserController.class
+io\github\aarvedahl\webshop\dto\Orderdto.class
+io\github\aarvedahl\webshop\dto\Articledto.class
