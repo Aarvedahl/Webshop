@@ -25,7 +25,7 @@ public class UserController {
     public void editUser(@RequestBody Users users) {
         userRepository.save(users);
     }
-    
+
     @GetMapping
     public List<Users> getUsers() {
         users = userRepository.findAll();
