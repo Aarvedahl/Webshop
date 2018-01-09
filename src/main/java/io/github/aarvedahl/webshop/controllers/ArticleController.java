@@ -26,6 +26,12 @@ public class ArticleController {
     }
 
     @PutMapping
+    public List<Article> updateFullArticle(@RequestBody Article article) {
+        articleRepository.save(article);
+        return getArticles();
+    }
+
+    @PatchMapping
     public List<Article> updateArticle(@RequestBody Article article) {
         articleRepository.save(article);
         return getArticles();

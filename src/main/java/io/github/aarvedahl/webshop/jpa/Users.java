@@ -1,12 +1,15 @@
 package io.github.aarvedahl.webshop.jpa;
 
 import javax.persistence.*;
+import java.io.Serializable;
 
 @Entity
-public class User {
+public class Users implements Serializable {
+
+    private static final long serialVersionUID = 2L;
 
     @Id
-    @GeneratedValue(strategy = GenerationType.AUTO)
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
     private int userid;
 
     @Column
@@ -18,13 +21,7 @@ public class User {
     @Column
     private String email;
 
-    public User(String username, String role, String email) {
-        this.username = username;
-        this.role = role;
-        this.email = email;
-    }
-
-    public User() { }
+    public Users() { }
 
     public int getUserid() { return userid; }
     public void setUserid(int userid) { this.userid = userid; }

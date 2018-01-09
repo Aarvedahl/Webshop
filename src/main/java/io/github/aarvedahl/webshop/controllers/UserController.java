@@ -1,12 +1,11 @@
 package io.github.aarvedahl.webshop.controllers;
 
-import io.github.aarvedahl.webshop.jpa.User;
+import io.github.aarvedahl.webshop.jpa.Users;
 import io.github.aarvedahl.webshop.repository.UserRepository;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.RequestBody;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
+
+import java.util.List;
 
 @RestController
 @RequestMapping("/users")
@@ -15,10 +14,17 @@ public class UserController {
     @Autowired
     UserRepository userRepository;
 
+    List<Users> users;
 
     @PostMapping
-    public void addUser(@RequestBody User user) {
-        userRepository.save(user);
+    public void addUser(@RequestBody Users users) {
+        userRepository.save(users);
+    }
+
+    @GetMapping
+    public List<Users> getUsers() {
+        users = userRepository.findAll();
+        return users;
     }
 
 }
