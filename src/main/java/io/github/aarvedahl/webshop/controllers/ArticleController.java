@@ -25,17 +25,15 @@ public class ArticleController {
         return getArticles();
     }
 
-    @PatchMapping
+    @PutMapping
     public void updateArticle(@RequestBody Article article) {
         articleRepository.save(article);
     }
 
     @PostMapping
-    public List<Article> addArticle(@RequestBody Article article) {
+    public void addArticle(@RequestBody Article article) {
         articleRepository.save(article);
-        return getArticles();
     }
-
 
     @DeleteMapping
     public void deleteArticle(@RequestBody Article article) {
