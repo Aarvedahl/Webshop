@@ -26,24 +26,25 @@ public class ArticleController {
     }
 
     @PutMapping
-    public void updateArticle(@RequestBody Article article) {
+    public List<Article> updateArticle(@RequestBody Article article) {
         articleRepository.save(article);
+        return getArticles();
     }
 
     @PostMapping
-    public void addArticle(@RequestBody Article article) {
+    public List<Article> addArticle(@RequestBody Article article) {
         articleRepository.save(article);
+        return getArticles();
     }
 
     @DeleteMapping
-    public void deleteArticle(@RequestBody Article article) {
+    public List<Article> deleteArticle(@RequestBody Article article) {
         articleRepository.delete(article);
+        return getArticles();
     }
 
     public List<Article> getArticles() {
-        if(articles == null) {
-            articles = articleRepository.findAll();
-        }
+        articles = articleRepository.findAll();
         return articles;
     }
 
