@@ -2,16 +2,7 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="d61f791f-a653-4a8f-af21-69372b9ab698" name="Default" comment="">
-      <change type="DELETED" beforePath="$PROJECT_DIR$/target/classes/io/github/aarvedahl/webshop/controllers/UserController.class" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/target/classes/io/github/aarvedahl/webshop/jpa/User.class" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/target/classes/io/github/aarvedahl/webshop/repository/UserRepository.class" afterPath="" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/src/main/java/io/github/aarvedahl/webshop/jpa/User.java" afterPath="$PROJECT_DIR$/src/main/java/io/github/aarvedahl/webshop/jpa/Users.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/target/classes/io/github/aarvedahl/webshop/controllers/ArticleController.class" afterPath="$PROJECT_DIR$/target/classes/io/github/aarvedahl/webshop/controllers/ArticleController.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/mvnw.cmd" afterPath="$PROJECT_DIR$/mvnw.cmd" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/java/io/github/aarvedahl/webshop/controllers/ArticleController.java" afterPath="$PROJECT_DIR$/src/main/java/io/github/aarvedahl/webshop/controllers/ArticleController.java" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/java/io/github/aarvedahl/webshop/controllers/UserController.java" afterPath="$PROJECT_DIR$/src/main/java/io/github/aarvedahl/webshop/controllers/UserController.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/java/io/github/aarvedahl/webshop/repository/UserRepository.java" afterPath="$PROJECT_DIR$/src/main/java/io/github/aarvedahl/webshop/repository/UserRepository.java" />
     </list>
     <ignored path="$PROJECT_DIR$/target/" />
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
@@ -49,7 +40,7 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="Users.java" pinned="false" current-in-tab="true">
+      <file leaf-file-name="Users.java" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/main/java/io/github/aarvedahl/webshop/jpa/Users.java">
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="170">
@@ -61,14 +52,16 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="UserController.java" pinned="false" current-in-tab="false">
+      <file leaf-file-name="UserController.java" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/src/main/java/io/github/aarvedahl/webshop/controllers/UserController.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="255">
-              <caret line="20" column="35" lean-forward="true" selection-start-line="20" selection-start-column="35" selection-end-line="20" selection-end-column="35" />
+            <state relative-caret-position="374">
+              <caret line="27" column="4" lean-forward="false" selection-start-line="27" selection-start-column="4" selection-end-line="27" selection-end-column="4" />
               <folding>
                 <element signature="e#511#512#0" expanded="true" />
                 <element signature="e#553#554#0" expanded="true" />
+                <element signature="e#625#626#0" expanded="true" />
+                <element signature="e#667#668#0" expanded="true" />
               </folding>
             </state>
           </provider>
@@ -153,9 +146,9 @@
         <option value="$PROJECT_DIR$/Vagrantfile" />
         <option value="$PROJECT_DIR$/src/main/java/io/github/aarvedahl/webshop/jpa/Article.java" />
         <option value="$PROJECT_DIR$/src/main/java/io/github/aarvedahl/webshop/controllers/ArticleController.java" />
-        <option value="$PROJECT_DIR$/src/main/java/io/github/aarvedahl/webshop/controllers/UserController.java" />
         <option value="$PROJECT_DIR$/src/main/java/io/github/aarvedahl/webshop/jpa/User.java" />
         <option value="$PROJECT_DIR$/src/main/java/io/github/aarvedahl/webshop/jpa/Users.java" />
+        <option value="$PROJECT_DIR$/src/main/java/io/github/aarvedahl/webshop/controllers/UserController.java" />
       </list>
     </option>
   </component>
@@ -466,12 +459,12 @@
       <workItem from="1515439108396" duration="232000" />
       <workItem from="1515490982116" duration="17000" />
       <workItem from="1515492186582" duration="4346000" />
-      <workItem from="1515500515991" duration="3513000" />
+      <workItem from="1515500515991" duration="3687000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="15596000" />
+    <option name="totallyTimeSpent" value="15770000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="-8" y="-8" width="1936" height="1056" extended-state="6" />
@@ -565,6 +558,8 @@
           <folding>
             <element signature="e#511#512#0" expanded="true" />
             <element signature="e#553#554#0" expanded="true" />
+            <element signature="e#625#626#0" expanded="true" />
+            <element signature="e#667#668#0" expanded="true" />
           </folding>
         </state>
       </provider>
@@ -626,6 +621,8 @@
           <folding>
             <element signature="e#511#512#0" expanded="true" />
             <element signature="e#553#554#0" expanded="true" />
+            <element signature="e#625#626#0" expanded="true" />
+            <element signature="e#667#668#0" expanded="true" />
           </folding>
         </state>
       </provider>
@@ -687,6 +684,8 @@
           <folding>
             <element signature="e#511#512#0" expanded="true" />
             <element signature="e#553#554#0" expanded="true" />
+            <element signature="e#625#626#0" expanded="true" />
+            <element signature="e#667#668#0" expanded="true" />
           </folding>
         </state>
       </provider>
@@ -749,6 +748,8 @@
           <folding>
             <element signature="e#511#512#0" expanded="true" />
             <element signature="e#553#554#0" expanded="true" />
+            <element signature="e#625#626#0" expanded="true" />
+            <element signature="e#667#668#0" expanded="true" />
           </folding>
         </state>
       </provider>
@@ -910,17 +911,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/io/github/aarvedahl/webshop/controllers/UserController.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="255">
-          <caret line="20" column="35" lean-forward="true" selection-start-line="20" selection-start-column="35" selection-end-line="20" selection-end-column="35" />
-          <folding>
-            <element signature="e#511#512#0" expanded="true" />
-            <element signature="e#553#554#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/main/java/io/github/aarvedahl/webshop/jpa/Article.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="204">
@@ -937,6 +927,19 @@
           <caret line="10" column="7" lean-forward="true" selection-start-line="10" selection-start-column="7" selection-end-line="10" selection-end-column="7" />
           <folding>
             <element signature="imports" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/io/github/aarvedahl/webshop/controllers/UserController.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="374">
+          <caret line="27" column="4" lean-forward="false" selection-start-line="27" selection-start-column="4" selection-end-line="27" selection-end-column="4" />
+          <folding>
+            <element signature="e#511#512#0" expanded="true" />
+            <element signature="e#553#554#0" expanded="true" />
+            <element signature="e#625#626#0" expanded="true" />
+            <element signature="e#667#668#0" expanded="true" />
           </folding>
         </state>
       </provider>
