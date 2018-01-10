@@ -17,13 +17,13 @@ public class UserController {
     List<Users> users;
 
     @PostMapping
-    public void addUser(@RequestBody Users users) {
-        userRepository.save(users);
+    public void addUser(@RequestBody Users user) {
+        userRepository.save(user);
     }
 
     @PatchMapping
-    public void editUser(@RequestBody Users users) {
-        userRepository.save(users);
+    public void editUser(@RequestBody Users user) {
+        userRepository.save(user);
     }
 
     @GetMapping

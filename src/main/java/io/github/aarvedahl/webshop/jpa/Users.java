@@ -1,5 +1,8 @@
 package io.github.aarvedahl.webshop.jpa;
 
+import com.fasterxml.jackson.annotation.JsonBackReference;
+import com.fasterxml.jackson.annotation.JsonManagedReference;
+
 import javax.persistence.*;
 import java.io.Serializable;
 import java.util.List;
@@ -22,8 +25,9 @@ public class Users implements Serializable {
     @Column
     private String email;
 
-   /* @OneToMany(mappedBy = "userid")
-    private List<Purchase> orders; */
+    @JsonManagedReference
+    @OneToMany(mappedBy = "userid")
+    private List<Purchase> orders;
 
     public Users() { }
 
@@ -35,6 +39,6 @@ public class Users implements Serializable {
     public void setRole(String role) { this.role = role; }
     public String getEmail() { return email; }
     public void setEmail(String email) { this.email = email; }
- //   public List<Purchase> getOrders() { return orders; }
- //   public void setOrders(List<Purchase> orders) { this.orders = orders; }
+    public List<Purchase> getOrders() { return orders; }
+    public void setOrders(List<Purchase> orders) { this.orders = orders; }
 }

@@ -64,9 +64,7 @@ public class Article implements Serializable {
             }
     )
     private List<Article> articleList;
+*/
 
-   @ManyToOne
-    @JoinColumn(name="userid", referencedColumnName = "userid", nullable = false)
-    private Users userid; */
 }
 
