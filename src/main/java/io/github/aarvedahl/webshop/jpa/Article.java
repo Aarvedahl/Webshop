@@ -29,8 +29,8 @@ public class Article implements Serializable {
     @Column
     private String brand;
 
-    @ManyToMany(mappedBy = "articleList")
-    public List<Order> orderList;
+  //  @ManyToMany(mappedBy = "articleList")
+ //   public List<Purchase> orderList;
 
     public Article() { }
 
@@ -46,6 +46,27 @@ public class Article implements Serializable {
     public void setStock(int stock) { this.stock = stock; }
     public String getBrand() { return brand; }
     public void setBrand(String brand) { this.brand = brand; }
-    public List<Order> getOrderList() { return orderList; }
+  //  public List<Purchase> getOrderList() { return orderList; }
+    /*    @ManyToMany
+    @JoinTable(
+            name = "order_article",
+            joinColumns = {
+                    @JoinColumn(
+                            name="orderid", // Mellantabell Kolumnen vi vill joina till
+                            referencedColumnName = "orderid" // Super Tabellen
+                    )
+            },
+            inverseJoinColumns = {
+                    @JoinColumn(
+                            name="articleid",
+                            referencedColumnName = "articleid"
+                    )
+            }
+    )
+    private List<Article> articleList;
+
+   @ManyToOne
+    @JoinColumn(name="userid", referencedColumnName = "userid", nullable = false)
+    private Users userid; */
 }
 

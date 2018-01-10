@@ -1,6 +1,6 @@
 package io.github.aarvedahl.webshop.controllers;
 
-import io.github.aarvedahl.webshop.jpa.Order;
+import io.github.aarvedahl.webshop.jpa.Purchase;
 import io.github.aarvedahl.webshop.repository.OrderRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -16,10 +16,10 @@ public class OrderController {
     @Autowired
     OrderRepository orderRepository;
 
-    List<Order> orders;
+    List<Purchase> orders;
 
     @GetMapping
-    public List<Order> getOrders() {
+    public List<Purchase> getOrders() {
         orders = orderRepository.findAll();
         return orders;
     }
