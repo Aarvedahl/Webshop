@@ -6,6 +6,7 @@ import com.fasterxml.jackson.annotation.JsonManagedReference;
 import javax.persistence.*;
 import java.io.Serializable;
 import java.util.Date;
+import java.util.List;
 
 @Entity
 public class Purchase implements Serializable{
@@ -15,9 +16,6 @@ public class Purchase implements Serializable{
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private int orderid;
-
-   // @Column
-  //  private int userid;
 
     @Column
     private Date orderdate;
@@ -30,6 +28,25 @@ public class Purchase implements Serializable{
     @JoinColumn(name="userid", referencedColumnName = "userid", nullable = false)
     private Users userid;
 
+    @JsonManagedReference
+    @ManyToMany
+    @JoinTable(
+            name = "purchase_article",
+            joinColumns = {
+                    @JoinColumn(
+                            name="orderid", // Mellantabell Kolumnen vi vill joina till
+                            referencedColumnName = "orderid" // Super Tabellen
+                    )
+            },
+            inverseJoinColumns = {
+                    @JoinColumn(
+                            name="articleid",
+                            referencedColumnName = "articleid"
+                    )
+            }
+    )
+    private List<Article> articleList;
+
     public Purchase() { }
     public Purchase(Users userid, Date orderdate, Boolean canceled) {
         this.userid = userid;
@@ -38,7 +55,6 @@ public class Purchase implements Serializable{
     }
     public int getOrderid() { return orderid; }
     public void setOrderid(int orderid) { this.orderid = orderid; }
-
     public Users getUserid() { return userid; }
     public void setUserid(Users userid) { this.userid = userid; }
     public Date getOrderdate() { return orderdate; }
