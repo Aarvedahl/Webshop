@@ -3,6 +3,7 @@ package io.github.aarvedahl.webshop.jpa;
 
 import javax.persistence.*;
 import java.io.Serializable;
+import java.util.List;
 
 @Entity
 public class Article implements Serializable {
@@ -28,6 +29,9 @@ public class Article implements Serializable {
     @Column
     private String brand;
 
+    @ManyToMany(mappedBy = "articleList")
+    public List<Order> orderList;
+
     public Article() { }
 
     public int getArticleid() { return articleid; }
@@ -42,5 +46,6 @@ public class Article implements Serializable {
     public void setStock(int stock) { this.stock = stock; }
     public String getBrand() { return brand; }
     public void setBrand(String brand) { this.brand = brand; }
+    public List<Order> getOrderList() { return orderList; }
 }
 

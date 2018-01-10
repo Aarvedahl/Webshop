@@ -2,6 +2,7 @@ package io.github.aarvedahl.webshop.jpa;
 
 import javax.persistence.*;
 import java.time.Instant;
+import java.util.List;
 
 @Entity
 public class Order {
@@ -10,13 +11,27 @@ public class Order {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private int orderid;
 
-    // TODO Skapa en many to many
-    @Column
-    private int articleid;
+    @ManyToMany
+    @JoinTable(
+            name = "order_article",
+            joinColumns = {
+                    @JoinColumn(
+                            name="orderid", // Mellantabell Kolumnen vi vill joina till
+                            referencedColumnName = "orderid" // Super Tabellen
+                    )
+            },
+            inverseJoinColumns = {
+                    @JoinColumn(
+                            name="articleid",
+                            referencedColumnName = "articleid"
+                    )
+            }
+    )
+    private List<Article> articleList;
 
-    // TODO Skapa en one to many
-    @Column
-    private int userid;
+    @ManyToOne
+    @JoinColumn(name="userid", referencedColumnName = "userid", nullable = false)
+    private Users userid;
 
     @Column
     private Instant orderdate;
@@ -25,10 +40,10 @@ public class Order {
 
     public int getOrderid() { return orderid; }
     public void setOrderid(int orderid) { this.orderid = orderid;    }
-    public int getArticleid() { return articleid; }
-    public void setArticleid(int articleid) { this.articleid = articleid; }
-    public int getUserid() { return userid; }
-    public void setUserid(int userid) { this.userid = userid; }
+    public List<Article> getArticleList() { return articleList; }
+    public void setArticleList(List<Article> articleList) { this.articleList = articleList; }
+    public Users getUserid() { return userid; }
+    public void setUserid(Users userid) { this.userid = userid; }
     public Instant getOrderdate() { return orderdate; }
     public void setOrderdate(Instant orderdate) { this.orderdate = orderdate; }
 }

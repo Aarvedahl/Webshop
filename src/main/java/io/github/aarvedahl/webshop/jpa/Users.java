@@ -2,6 +2,7 @@ package io.github.aarvedahl.webshop.jpa;
 
 import javax.persistence.*;
 import java.io.Serializable;
+import java.util.List;
 
 @Entity
 public class Users implements Serializable {
@@ -21,6 +22,9 @@ public class Users implements Serializable {
     @Column
     private String email;
 
+    @OneToMany(mappedBy = "userid")
+    private List<Order> orders;
+
     public Users() { }
 
     public int getUserid() { return userid; }
@@ -31,4 +35,6 @@ public class Users implements Serializable {
     public void setRole(String role) { this.role = role; }
     public String getEmail() { return email; }
     public void setEmail(String email) { this.email = email; }
+    public List<Order> getOrders() { return orders; }
+    public void setOrders(List<Order> orders) { this.orders = orders; }
 }
