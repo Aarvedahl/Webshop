@@ -2,6 +2,7 @@ package io.github.aarvedahl.webshop.jpa;
 
 
 import com.fasterxml.jackson.annotation.JsonBackReference;
+import com.fasterxml.jackson.annotation.JsonManagedReference;
 
 import javax.persistence.*;
 import java.io.Serializable;
@@ -31,11 +32,21 @@ public class Article implements Serializable {
     @Column
     private String brand;
 
-    @JsonBackReference
-    @ManyToMany(mappedBy = "articleList")
-    public List<Purchase> orderList;
+    //@ManyToMany(mappedBy = "articleList", cascade = CascadeType.MERGE)
+    @JsonManagedReference
+    @OneToMany(mappedBy = "articleid")
+    public List<Purchase_article> orderList;
 
     public Article() { }
+
+    public Article(int articleid, String articlename, String description, int price, int stock, String brand) {
+        this.articleid = articleid;
+        this.articlename = articlename;
+        this.description = description;
+        this.price = price;
+        this.stock = stock;
+        this.brand = brand;
+    }
 
     public int getArticleid() { return articleid; }
     public void setArticleid(int articleid) { this.articleid = articleid; }
@@ -49,7 +60,7 @@ public class Article implements Serializable {
     public void setStock(int stock) { this.stock = stock; }
     public String getBrand() { return brand; }
     public void setBrand(String brand) { this.brand = brand; }
-    public List<Purchase> getOrderList() { return orderList; }
+    public List<Purchase_article> getOrderList() { return orderList; }
 
 }
 

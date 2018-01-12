@@ -27,7 +27,8 @@ public class UserController {
     }
 
     @PatchMapping
-    public void editUser(@RequestBody Users user) {
+    public void editUser(@RequestBody Userdto userdto) {
+        Users user = new Users(userdto.getUserid(), userdto.getUsername(), userdto.getRole(), userdto.getEmail());
         userRepository.save(user);
     }
 
