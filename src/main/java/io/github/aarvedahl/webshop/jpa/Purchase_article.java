@@ -11,15 +11,17 @@ public class Purchase_article implements Serializable{
 
     private static final long serialVersionUID = 1L;
 
-    // TODO OM vi inte får ordning på detta så ska vi lägga till ett purchase_article id
-
     @Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    private int purchaseid;
+
+
     @ManyToOne
     @JsonBackReference
     @JoinColumn(name="orderid", referencedColumnName = "orderid", nullable = false)
     private Purchase orderid;
 
-    @Id
+
     @ManyToOne
     @JsonManagedReference
     @JoinColumn(name="articleid", referencedColumnName = "articleid", nullable = false)
@@ -32,6 +34,8 @@ public class Purchase_article implements Serializable{
 
     public Purchase_article() { }
 
+    public int getPurchaseid() { return purchaseid; }
+    public void setPurchaseid(int purchaseid) { this.purchaseid = purchaseid; }
     public Purchase getOrderid() { return orderid; }
     public void setOrderid(Purchase orderid) { this.orderid = orderid; }
     public Article getArticleid() { return articleid; }

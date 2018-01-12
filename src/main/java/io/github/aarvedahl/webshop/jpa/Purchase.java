@@ -39,7 +39,8 @@ public class Purchase implements Serializable{
         this.orderid = orderid;
     }
     public Purchase() { }
-    public Purchase(Users userid, Date orderdate, Boolean canceled) {
+    public Purchase(int orderid, Users userid, Date orderdate, Boolean canceled) {
+        this.orderid = orderid;
         this.userid = userid;
         this.orderdate = orderdate;
         this.canceled = canceled;
