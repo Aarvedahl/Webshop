@@ -1,6 +1,7 @@
 package io.github.aarvedahl.webshop.jpa;
 
 import com.fasterxml.jackson.annotation.JsonBackReference;
+import com.fasterxml.jackson.annotation.JsonManagedReference;
 
 import javax.persistence.*;
 import java.io.Serializable;
@@ -10,15 +11,17 @@ public class Purchase_article implements Serializable{
 
     private static final long serialVersionUID = 1L;
 
+    // TODO OM vi inte får ordning på detta så ska vi lägga till ett purchase_article id
+
     @Id
-    @JsonBackReference
     @ManyToOne
+    @JsonBackReference
     @JoinColumn(name="orderid", referencedColumnName = "orderid", nullable = false)
     private Purchase orderid;
 
     @Id
-    @JsonBackReference
     @ManyToOne
+    @JsonManagedReference
     @JoinColumn(name="articleid", referencedColumnName = "articleid", nullable = false)
     private Article articleid;
 

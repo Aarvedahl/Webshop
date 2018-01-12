@@ -32,8 +32,7 @@ public class Article implements Serializable {
     @Column
     private String brand;
 
-    //@ManyToMany(mappedBy = "articleList", cascade = CascadeType.MERGE)
-    @JsonManagedReference
+    @JsonBackReference
     @OneToMany(mappedBy = "articleid")
     public List<Purchase_article> orderList;
 

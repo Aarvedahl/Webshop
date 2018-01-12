@@ -2,15 +2,12 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="d61f791f-a653-4a8f-af21-69372b9ab698" name="Default" comment="">
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/target/classes/io/github/aarvedahl/webshop/controllers/OrderController.class" afterPath="$PROJECT_DIR$/target/classes/io/github/aarvedahl/webshop/controllers/OrderController.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/target/classes/io/github/aarvedahl/webshop/controllers/UserController.class" afterPath="$PROJECT_DIR$/target/classes/io/github/aarvedahl/webshop/controllers/UserController.class" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/target/classes/io/github/aarvedahl/webshop/jpa/Article.class" afterPath="$PROJECT_DIR$/target/classes/io/github/aarvedahl/webshop/jpa/Article.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/target/classes/io/github/aarvedahl/webshop/jpa/Purchase.class" afterPath="$PROJECT_DIR$/target/classes/io/github/aarvedahl/webshop/jpa/Purchase.class" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/target/classes/io/github/aarvedahl/webshop/jpa/Purchase_article.class" afterPath="$PROJECT_DIR$/target/classes/io/github/aarvedahl/webshop/jpa/Purchase_article.class" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/java/io/github/aarvedahl/webshop/controllers/OrderController.java" afterPath="$PROJECT_DIR$/src/main/java/io/github/aarvedahl/webshop/controllers/OrderController.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/java/io/github/aarvedahl/webshop/controllers/UserController.java" afterPath="$PROJECT_DIR$/src/main/java/io/github/aarvedahl/webshop/controllers/UserController.java" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/java/io/github/aarvedahl/webshop/jpa/Article.java" afterPath="$PROJECT_DIR$/src/main/java/io/github/aarvedahl/webshop/jpa/Article.java" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/java/io/github/aarvedahl/webshop/jpa/Purchase.java" afterPath="$PROJECT_DIR$/src/main/java/io/github/aarvedahl/webshop/jpa/Purchase.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/java/io/github/aarvedahl/webshop/jpa/Purchase_article.java" afterPath="$PROJECT_DIR$/src/main/java/io/github/aarvedahl/webshop/jpa/Purchase_article.java" />
     </list>
     <ignored path="$PROJECT_DIR$/target/" />
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
@@ -36,11 +33,11 @@
               </provider>
             </entry>
           </file>
-          <file leaf-file-name="Article.java" pinned="false" current-in-tab="false">
+          <file leaf-file-name="Article.java" pinned="false" current-in-tab="true">
             <entry file="file://$PROJECT_DIR$/src/main/java/io/github/aarvedahl/webshop/jpa/Article.java">
               <provider selected="true" editor-type-id="text-editor">
-                <state relative-caret-position="320">
-                  <caret line="32" column="25" lean-forward="true" selection-start-line="32" selection-start-column="25" selection-end-line="32" selection-end-column="25" />
+                <state relative-caret-position="252">
+                  <caret line="34" column="0" lean-forward="false" selection-start-line="34" selection-start-column="0" selection-end-line="34" selection-end-column="0" />
                   <folding>
                     <element signature="imports" expanded="true" />
                   </folding>
@@ -48,11 +45,11 @@
               </provider>
             </entry>
           </file>
-          <file leaf-file-name="Purchase.java" pinned="false" current-in-tab="true">
+          <file leaf-file-name="Purchase.java" pinned="false" current-in-tab="false">
             <entry file="file://$PROJECT_DIR$/src/main/java/io/github/aarvedahl/webshop/jpa/Purchase.java">
               <provider selected="true" editor-type-id="text-editor">
-                <state relative-caret-position="728">
-                  <caret line="66" column="32" lean-forward="false" selection-start-line="66" selection-start-column="32" selection-end-line="66" selection-end-column="32" />
+                <state relative-caret-position="201">
+                  <caret line="26" column="0" lean-forward="true" selection-start-line="26" selection-start-column="0" selection-end-line="26" selection-end-column="0" />
                   <folding>
                     <element signature="imports" expanded="true" />
                   </folding>
@@ -99,8 +96,8 @@
           <file leaf-file-name="Purchase_article.java" pinned="false" current-in-tab="true">
             <entry file="file://$PROJECT_DIR$/src/main/java/io/github/aarvedahl/webshop/jpa/Purchase_article.java">
               <provider selected="true" editor-type-id="text-editor">
-                <state relative-caret-position="136">
-                  <caret line="8" column="29" lean-forward="false" selection-start-line="8" selection-start-column="13" selection-end-line="8" selection-end-column="29" />
+                <state relative-caret-position="374">
+                  <caret line="23" column="25" lean-forward="false" selection-start-line="23" selection-start-column="25" selection-end-line="23" selection-end-column="25" />
                   <folding>
                     <element signature="imports" expanded="true" />
                   </folding>
@@ -179,8 +176,8 @@
         <option value="$PROJECT_DIR$/src/main/java/io/github/aarvedahl/webshop/controllers/UserController.java" />
         <option value="$PROJECT_DIR$/src/main/java/io/github/aarvedahl/webshop/controllers/OrderController.java" />
         <option value="$PROJECT_DIR$/src/main/java/io/github/aarvedahl/webshop/jpa/Purchase_article.java" />
-        <option value="$PROJECT_DIR$/src/main/java/io/github/aarvedahl/webshop/jpa/Article.java" />
         <option value="$PROJECT_DIR$/src/main/java/io/github/aarvedahl/webshop/jpa/Purchase.java" />
+        <option value="$PROJECT_DIR$/src/main/java/io/github/aarvedahl/webshop/jpa/Article.java" />
       </list>
     </option>
   </component>
@@ -497,12 +494,12 @@
       <workItem from="1515595973725" duration="769000" />
       <workItem from="1515659644069" duration="141000" />
       <workItem from="1515660138777" duration="1194000" />
-      <workItem from="1515744949305" duration="4398000" />
+      <workItem from="1515744949305" duration="4973000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="40509000" />
+    <option name="totallyTimeSpent" value="41084000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="-8" y="-8" width="1936" height="1056" extended-state="6" />
@@ -938,18 +935,8 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/src/main/java/io/github/aarvedahl/webshop/jpa/Purchase_article.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="136">
-          <caret line="8" column="29" lean-forward="false" selection-start-line="8" selection-start-column="13" selection-end-line="8" selection-end-column="29" />
-          <folding>
-            <element signature="imports" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/io/github/aarvedahl/webshop/jpa/Article.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="320">
-          <caret line="32" column="25" lean-forward="true" selection-start-line="32" selection-start-column="25" selection-end-line="32" selection-end-column="25" />
+        <state relative-caret-position="374">
+          <caret line="23" column="25" lean-forward="false" selection-start-line="23" selection-start-column="25" selection-end-line="23" selection-end-column="25" />
           <folding>
             <element signature="imports" expanded="true" />
           </folding>
@@ -958,8 +945,18 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/src/main/java/io/github/aarvedahl/webshop/jpa/Purchase.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="728">
-          <caret line="66" column="32" lean-forward="false" selection-start-line="66" selection-start-column="32" selection-end-line="66" selection-end-column="32" />
+        <state relative-caret-position="201">
+          <caret line="26" column="0" lean-forward="true" selection-start-line="26" selection-start-column="0" selection-end-line="26" selection-end-column="0" />
+          <folding>
+            <element signature="imports" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/io/github/aarvedahl/webshop/jpa/Article.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="252">
+          <caret line="34" column="0" lean-forward="false" selection-start-line="34" selection-start-column="0" selection-end-line="34" selection-end-column="0" />
           <folding>
             <element signature="imports" expanded="true" />
           </folding>

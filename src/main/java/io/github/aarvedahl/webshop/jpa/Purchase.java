@@ -30,22 +30,7 @@ public class Purchase implements Serializable{
     @JoinColumn(name="userid", referencedColumnName = "userid", nullable = false)
     private Users userid;
 
-   /* @ManyToMany(cascade = CascadeType.MERGE)
-    @JoinTable(
-            name = "purchase_article",
-            joinColumns = {
-                    @JoinColumn(
-                            name="orderid", // Mellantabell Kolumnen vi vill joina till
-                            referencedColumnName = "orderid" // Super Tabellen
-                    )
-            },
-            inverseJoinColumns = {
-                    @JoinColumn(
-                            name="articleid",
-                            referencedColumnName = "articleid"
-                    )
-            }
-    ) */
+
     @JsonManagedReference
     @OneToMany(mappedBy = "orderid")
     private List<Purchase_article> articleList;
