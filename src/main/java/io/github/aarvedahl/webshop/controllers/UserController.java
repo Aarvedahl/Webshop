@@ -21,7 +21,6 @@ public class UserController {
 
     @PostMapping
     public void addUser(@RequestBody Userdto userdto) {
-        List<Purchase> purchases = new LinkedList<Purchase>();
         Users user = new Users(userdto.getUserid(), userdto.getUsername(), userdto.getRole(), userdto.getEmail());
         userRepository.save(user);
     }
@@ -40,7 +39,6 @@ public class UserController {
 
     @DeleteMapping
     public void removeUser(@RequestBody Userdto userdto) {
-        List<Purchase> purchases = new LinkedList<Purchase>();
         Users user = new Users(userdto.getUserid(), userdto.getUsername(), userdto.getRole(), userdto.getEmail());
         userRepository.delete(user);
     }
