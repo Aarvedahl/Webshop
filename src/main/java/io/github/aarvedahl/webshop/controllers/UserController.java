@@ -37,6 +37,12 @@ public class UserController {
         return users;
     }
 
+    @RequestMapping(value = "/{userid}", method = RequestMethod.GET)
+    public Users getOneUser(@PathVariable("userid") int userid) {
+        Users users = userRepository.findByUserid(userid);
+        return users;
+    }
+
     @DeleteMapping
     public void removeUser(@RequestBody Userdto userdto) {
         Users user = new Users(userdto.getUserid(), userdto.getUsername(), userdto.getRole(), userdto.getEmail());
