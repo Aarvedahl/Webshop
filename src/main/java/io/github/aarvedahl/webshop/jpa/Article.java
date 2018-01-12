@@ -37,7 +37,9 @@ public class Article implements Serializable {
     public List<Purchase_article> orderList;
 
     public Article() { }
-
+    public Article(int articleid) {
+        this.articleid = articleid;
+    }
     public Article(int articleid, String articlename, String description, int price, int stock, String brand) {
         this.articleid = articleid;
         this.articlename = articlename;

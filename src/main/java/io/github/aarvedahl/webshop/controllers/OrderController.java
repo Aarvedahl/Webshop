@@ -2,7 +2,9 @@ package io.github.aarvedahl.webshop.controllers;
 
 import io.github.aarvedahl.webshop.jpa.Article;
 import io.github.aarvedahl.webshop.jpa.Purchase;
+import io.github.aarvedahl.webshop.jpa.Purchase_article;
 import io.github.aarvedahl.webshop.repository.OrderRepository;
+import io.github.aarvedahl.webshop.repository.Purchase_articleRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
 
@@ -13,8 +15,8 @@ import java.util.List;
 @RequestMapping("/orders")
 public class OrderController {
 
-    @Autowired
-    OrderRepository orderRepository;
+    @Autowired OrderRepository orderRepository;
+    @Autowired Purchase_articleRepository purchaseRepository;
 
     List<Purchase> orders;
 
@@ -25,8 +27,11 @@ public class OrderController {
     }
 
     @PostMapping
-    public List<Purchase> makeOrder(@RequestBody Purchase purchase) {
+    public List<Purchase> makeOrder(@RequestBody Purchase purchase, @RequestBody List<Article> articles) {
         orderRepository.save(purchase);
+        for(Article article: articles) {
+            Purchase_article purchaseArticle = new Purchase_article(new Purchase(purchase.getOrderid()), new Article(article.getArticleid()));
+        }
         orders = orderRepository.findAll();
         return orders;
     }

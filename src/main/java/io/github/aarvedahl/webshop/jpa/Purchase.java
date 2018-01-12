@@ -35,6 +35,9 @@ public class Purchase implements Serializable{
     @OneToMany(mappedBy = "orderid")
     private List<Purchase_article> articleList;
 
+    public Purchase(int orderid){
+        this.orderid = orderid;
+    }
     public Purchase() { }
     public Purchase(Users userid, Date orderdate, Boolean canceled) {
         this.userid = userid;
