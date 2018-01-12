@@ -23,7 +23,7 @@ public class Users implements Serializable {
     @Column
     private String email;
 
-    @OneToMany(mappedBy = "userid")
+    @OneToMany(mappedBy = "userid", cascade=CascadeType.MERGE)
     private List<Purchase> orders;
 
     public Users() { }

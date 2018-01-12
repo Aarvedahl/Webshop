@@ -7,6 +7,7 @@ import io.github.aarvedahl.webshop.jpa.Purchase_article;
 import io.github.aarvedahl.webshop.jpa.Users;
 import io.github.aarvedahl.webshop.repository.OrderRepository;
 import io.github.aarvedahl.webshop.repository.Purchase_articleRepository;
+import io.github.aarvedahl.webshop.wrapper.OrderArticleWrapper;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
 
@@ -40,10 +41,10 @@ public class OrderController {
     }
 
     @RequestMapping(value = "/addOrder")
-    public void addOrder(@RequestBody Purchasedto purchasedto, @RequestBody Article article) {
-        Purchase purchase = new Purchase(purchasedto.getOrderid(), new Users(purchasedto.getUserid()), purchasedto.getOrderdate(), purchasedto.isCanceled());
+    public void addOrder(@RequestBody OrderArticleWrapper orderArticleWrapper) {
+        Purchase purchase = new Purchase(orderArticleWrapper.getPurchasedto().getOrderid(), new Users(orderArticleWrapper.getPurchasedto().getUserid()), orderArticleWrapper.getPurchasedto().getOrderdate(), orderArticleWrapper.getPurchasedto().isCanceled());
         orderRepository.save(purchase);
-        Purchase_article purchaseArticle = new Purchase_article(new Purchase(purchase.getOrderid()), new Article(article.getArticleid()));
+        Purchase_article purchaseArticle = new Purchase_article(new Purchase(purchase.getOrderid()), new Article(orderArticleWrapper.getArticledto().getArticleid()));
         purchaseRepository.save(purchaseArticle);
     }
     @PatchMapping

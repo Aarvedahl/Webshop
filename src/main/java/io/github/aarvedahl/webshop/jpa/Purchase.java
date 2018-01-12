@@ -26,13 +26,13 @@ public class Purchase implements Serializable{
     private boolean canceled;
 
     @JsonBackReference
-    @ManyToOne
+    @ManyToOne(cascade=CascadeType.MERGE)
     @JoinColumn(name="userid", referencedColumnName = "userid", nullable = false)
     private Users userid;
 
 
     @JsonManagedReference
-    @OneToMany(mappedBy = "orderid")
+    @OneToMany(mappedBy = "orderid", cascade=CascadeType.MERGE)
     private List<Purchase_article> articleList;
 
     public Purchase(int orderid){

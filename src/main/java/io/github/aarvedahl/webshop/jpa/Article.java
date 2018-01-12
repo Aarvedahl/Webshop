@@ -33,7 +33,7 @@ public class Article implements Serializable {
     private String brand;
 
     @JsonBackReference
-    @OneToMany(mappedBy = "articleid")
+    @OneToMany(mappedBy = "articleid", cascade=CascadeType.MERGE)
     public List<Purchase_article> orderList;
 
     public Article() { }

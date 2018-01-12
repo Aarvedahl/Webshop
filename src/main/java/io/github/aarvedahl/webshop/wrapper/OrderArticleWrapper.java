@@ -1,19 +1,21 @@
 package io.github.aarvedahl.webshop.wrapper;
 
+import io.github.aarvedahl.webshop.dto.Articledto;
 import io.github.aarvedahl.webshop.dto.Purchasedto;
 import io.github.aarvedahl.webshop.jpa.Article;
 
 public class OrderArticleWrapper {
 
     private Purchasedto purchasedto;
-    private Article article;
+    private Articledto articledto;
+
 
     public OrderArticleWrapper() {
     }
 
-    public OrderArticleWrapper(Purchasedto purchasedto, Article article) {
+    public OrderArticleWrapper(Purchasedto purchasedto, Articledto articledto) {
         this.purchasedto = purchasedto;
-        this.article = article;
+        this.articledto = articledto;
     }
 
     public Purchasedto getPurchasedto() {
@@ -24,11 +26,11 @@ public class OrderArticleWrapper {
         this.purchasedto = purchasedto;
     }
 
-    public Article getArticle() {
-        return article;
+    public Articledto getArticledto() {
+        return articledto;
     }
 
-    public void setArticle(Article article) {
-        this.article = article;
+    public void setArticledto(Articledto articledto) {
+        this.articledto = articledto;
     }
 }
