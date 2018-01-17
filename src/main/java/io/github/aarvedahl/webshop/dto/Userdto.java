@@ -4,14 +4,12 @@ public class Userdto {
 
     private int userid;
     private String username;
-    private String role;
-    private String email;
+    private String password;
 
-    public Userdto(int userid, String username, String role, String email) {
+    public Userdto(int userid, String username, String password) {
         this.userid = userid;
         this.username = username;
-        this.role = role;
-        this.email = email;
+        this.password = password;
     }
 
     public Userdto() { }
@@ -21,24 +19,13 @@ public class Userdto {
     public String getUsername() {
         return username;
     }
-
     public void setUsername(String username) {
         this.username = username;
     }
-
-    public String getRole() {
-        return role;
+    public String getPassword() {
+        return password;
     }
-
-    public void setRole(String role) {
-        this.role = role;
-    }
-
-    public String getEmail() {
-        return email;
-    }
-
-    public void setEmail(String email) {
-        this.email = email;
+    public void setPassword(String password) {
+        this.password = password;
     }
 }

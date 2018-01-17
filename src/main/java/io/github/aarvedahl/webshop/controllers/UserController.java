@@ -1,13 +1,11 @@
 package io.github.aarvedahl.webshop.controllers;
 
 import io.github.aarvedahl.webshop.dto.Userdto;
-import io.github.aarvedahl.webshop.jpa.Purchase;
 import io.github.aarvedahl.webshop.jpa.Users;
 import io.github.aarvedahl.webshop.repository.UserRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
 
-import java.util.LinkedList;
 import java.util.List;
 
 @RestController
@@ -21,13 +19,13 @@ public class UserController {
 
     @PostMapping
     public void addUser(@RequestBody Userdto userdto) {
-        Users user = new Users(userdto.getUserid(), userdto.getUsername(), userdto.getRole(), userdto.getEmail());
+        Users user = new Users(userdto.getUserid(), userdto.getUsername(), userdto.getPassword());
         userRepository.save(user);
     }
 
     @PatchMapping
     public void editUser(@RequestBody Userdto userdto) {
-        Users user = new Users(userdto.getUserid(), userdto.getUsername(), userdto.getRole(), userdto.getEmail());
+        Users user = new Users(userdto.getUserid(), userdto.getUsername(), userdto.getPassword());
         userRepository.save(user);
     }
 
@@ -45,7 +43,7 @@ public class UserController {
 
     @DeleteMapping
     public void removeUser(@RequestBody Userdto userdto) {
-        Users user = new Users(userdto.getUserid(), userdto.getUsername(), userdto.getRole(), userdto.getEmail());
+        Users user = new Users(userdto.getUserid(), userdto.getUsername(), userdto.getPassword());
         userRepository.delete(user);
     }
 
