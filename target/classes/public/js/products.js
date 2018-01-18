@@ -18,6 +18,9 @@ angular.module('hello', [])
             };
         };
 
+        // TODO Add good icons for delete, edit and add
+        // TODO Add ajax calls as well
+
         $scope.addArticle = function (articleToAdd) {
             console.log("We are supposed to add a article here");
             console.log(articleToAdd);
