@@ -17,10 +17,12 @@ public class UserController {
 
     List<Users> users;
 
+
     @PostMapping
     public void addUser(@RequestBody Userdto userdto) {
         Users user = new Users(userdto.getUserid(), userdto.getUsername(), userdto.getPassword());
-        userRepository.save(user);
+        System.out.println(userdto.getUsername());
+        //userRepository.save(user);
     }
 
     @PatchMapping

@@ -5,8 +5,24 @@ angular.module('register', [])
         $scope.addUsers = function (users) {
             console.log("We are supposed to add this user here");
             console.log(users);
-            $scope.showAlert = true;
+            $http({
+                url: '../users',
+                method: "POST",
+                data: users,
+                headers: {
+                    'Content-type': 'application/json'
+                }
+            })
+                .then(function(response) {
+                        // success
+                        $scope.showAlert = true;
+                    },
+                    function(response) {
+                        // failed
+                        console.error(response);
+                    });
             $scope.users = {};
         };
+
 
     });

@@ -32,9 +32,9 @@ public class Article implements Serializable {
     @Column
     private String brand;
 
-    @JsonBackReference
+    /*@JsonBackReference
     @OneToMany(mappedBy = "articleid", cascade=CascadeType.MERGE)
-    public List<Purchase_article> orderList;
+    public List<Purchase_article> orderList; */
 
     public Article() { }
     public Article(int articleid) {
@@ -61,7 +61,7 @@ public class Article implements Serializable {
     public void setStock(int stock) { this.stock = stock; }
     public String getBrand() { return brand; }
     public void setBrand(String brand) { this.brand = brand; }
-    public List<Purchase_article> getOrderList() { return orderList; }
+   // public List<Purchase_article> getOrderList() { return orderList; }
 
 }
 

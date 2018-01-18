@@ -1,6 +1,5 @@
 package io.github.aarvedahl.webshop.controllers;
 
-import io.github.aarvedahl.webshop.dto.Purchasedto;
 import io.github.aarvedahl.webshop.jpa.Article;
 import io.github.aarvedahl.webshop.jpa.Purchase;
 import io.github.aarvedahl.webshop.jpa.Purchase_article;
@@ -11,7 +10,6 @@ import io.github.aarvedahl.webshop.wrapper.OrderArticleWrapper;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
 
-import java.util.ArrayList;
 import java.util.List;
 
 @RestController

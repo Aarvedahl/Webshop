@@ -2,7 +2,7 @@ angular.module('hello', [])
     .controller('articles', function($scope, $http) {
         $scope.checked = false;
 
-        $http.get('http://localhost:8080/articles').
+        $http.get('http://localhost:8080/api/articles').
         then(function(response) {
             $scope.articles = response.data;
         });
@@ -24,6 +24,22 @@ angular.module('hello', [])
         $scope.addArticle = function (articleToAdd) {
             console.log("We are supposed to add a article here");
             console.log(articleToAdd);
+            $http({
+                url: '../api/articles',
+                method: "POST",
+                data: articleToAdd,
+                headers: {
+                    'Content-type': 'application/json'
+                }
+            })
+                .then(function(response) {
+                        // success
+                        $scope.showAlert = true;
+                    },
+                    function(response) {
+                        // failed
+                        console.error(response);
+                    });
             $scope.checkedFalse();
             $scope.tempArticleData = {};
         };

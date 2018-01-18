@@ -3,9 +3,11 @@ package io.github.aarvedahl.webshop.jpa;
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.Id;
+import javax.persistence.IdClass;
 import java.io.Serializable;
 
 @Entity
+@IdClass(User_roles.class)
 public class User_roles implements Serializable {
 
     private static final long serialVersionUID = 1L;
