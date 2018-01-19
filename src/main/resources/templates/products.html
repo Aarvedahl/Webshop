@@ -1,88 +1,106 @@
 <!doctype html>
-<html lang="en" ng-app="hello">
-    <head>
-        <!-- Required meta tags -->
-        <meta charset="utf-8" />
-        <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />
+<html lang="en" ng-app="hello" xmlns="http://www.w3.org/1999/xhtml" xmlns:th="http://www.thymeleaf.org"
+      xmlns:sec="http://www.thymeleaf.org/thymeleaf-extras-springsecurity3">
+<head>
+    <!-- Required meta tags -->
+    <meta charset="utf-8"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no"/>
 
-        <!-- Bootstrap CSS -->
-        <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta.3/css/bootstrap.min.css" integrity="sha384-Zug+QiDoJOrZ5t4lssLdxGhVrurbmBWopoEl+M6BdEfwnCJZtKxi1KgxUyJq13dy" crossorigin="anonymous" />
-        <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.5.6/angular.min.js"></script>
-        <script src="https://use.fontawesome.com/d97e4c5e8f.js"></script>
-        <script src="../js/products.js"></script>
-        <title>Hello, world!</title>
-    </head>
-    <body>
+    <!-- Bootstrap CSS -->
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta.3/css/bootstrap.min.css"
+          integrity="sha384-Zug+QiDoJOrZ5t4lssLdxGhVrurbmBWopoEl+M6BdEfwnCJZtKxi1KgxUyJq13dy" crossorigin="anonymous"/>
+    <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.5.6/angular.min.js"></script>
+    <script src="https://use.fontawesome.com/d97e4c5e8f.js"></script>
+    <script src="../js/products.js"></script>
+    <title>Hello, world!</title>
+</head>
+<body>
 
-        <div class="container" ng-controller="articles">
-            <div class="row" >
-                <!-- <div class="col-4" ng-repeat="article in articles">
-                    <h3>{{article.articlename}}</h3>
-                    <h4>{{article.brand}}</h4>
-                    <h4>{{article.price}}</h4>
-                    <label>View Details <input type="checkbox" ng-model="checked" ng-init="checked=false" /></label>
-                    <div ng-if="checked">
-                        <p>
-                            {{article.description}}
-                        </p>
-                    </div>
-                </div> -->
-                <div class="card">
-                    <div class="card-header">
-                        <h5>Articles</h5>
-                        <i class="fa fa-plus fa-lg" aria-hidden="true" ng-click="checkedTrue()"></i> Add  <span class="sr-only">(current)</span>
-                    </div>
-                    <div class="card-body formData">
-                        <form class="form" name="articleForm" ng-if="checked">
-                            <div class="form-group">
-                                <label>Articlename</label>
-                                <input type="text" class="form-control" name="articlename" ng-model="tempArticleData.articlename"/>
-                            </div>
-                            <div class="form-group">
-                                <label>Brand</label>
-                                <input type="text" class="form-control" name="brand" ng-model="tempArticleData.brand"/>
-                            </div>
-                            <div class="form-group">
-                                <label>Description</label>
-                                <input type="text" class="form-control" name="description" ng-model="tempArticleData.description"/>
-                            </div>
-
-                            <div class="form-group">
-                                <label>Price</label>
-                                <input type="number" class="form-control" name="price" ng-model="tempArticleData.price"/>
-                            </div>
-                            <a href="javascript:void(0);" class="btn btn-warning" ng-click="checkedFalse()">Cancel</a>
-                            <a href="javascript:void(0);" class="btn btn-success" ng-hide="tempArticleData.articleid" ng-click="addArticle(tempArticleData)">Add Article</a>
-                            <a href="javascript:void(0);" class="btn btn-success" ng-hide="!tempArticleData.articleid" ng-click="updateArticle(tempArticleData)">Update Article</a>
-                        </form>
-                    </div>
+<div class="container" ng-controller="articles">
+    <div class="row">
+        <div sec:authorize="hasRole('ROLE_USER')">
+            <div class="col-4" ng-repeat="article in articles">
+                <h3>{{article.articlename}}</h3>
+                <h4>{{article.brand}}</h4>
+                <h4>{{article.price}}</h4>
+                <label>View Details <input type="checkbox" ng-model="checked" ng-init="checked=false"/></label>
+                <button type="button" class="btn btn-success"><i class="fa fa-shopping-cart" aria-hidden="true"></i> Buy Now</button>
+                <div ng-if="checked">
+                    <p>
+                        {{article.description}}
+                    </p>
                 </div>
-                  <table class="table table-striped">
-                    <tr>
-                        <th width="5%">#</th>
-                        <th width="20%">Name</th>
-                        <th width="30%">Brand</th>
-                        <th width="20%">Price</th>
-                        <th width="14%">Description</th>
-                        <th width="10%"></th>
-                    </tr>
-                    <tr ng-repeat="article in articles">
-                        <td>{{$index + 1}}</td>
-                        <td>{{article.articlename}}</td>
-                        <td>{{article.brand}}</td>
-                        <td>{{article.price}}</td>
-                        <td>{{article.description}}</td>
-                        <td>
-                            <i class="fa fa-pencil-square-o fa-lg" aria-hidden="true" ng-click="editArticle(article)"></i>
-                            <i class="fa fa-trash fa-lg" aria-hidden="true" ng-click="deleteArticle(article)" ></i>
-                        </td>
-                    </tr>
-                </table>
             </div>
         </div>
+        <div sec:authorize="hasRole('ROLE_ADMIN')">
+            <div class="card">
+                <div class="card-header">
+                    <h5>Articles</h5>
+                    <i class="fa fa-plus fa-lg" aria-hidden="true" ng-click="checkedTrue()"></i> Add <span
+                        class="sr-only">(current)</span>
+                </div>
+                <div class="card-body formData">
+                    <form class="form" name="articleForm" ng-if="checked">
+                        <div class="form-group">
+                            <label>Articlename</label>
+                            <input type="text" class="form-control" name="articlename"
+                                   ng-model="tempArticleData.articlename"/>
+                        </div>
+                        <div class="form-group">
+                            <label>Brand</label>
+                            <input type="text" class="form-control" name="brand" ng-model="tempArticleData.brand"/>
+                        </div>
+                        <div class="form-group">
+                            <label>Description</label>
+                            <input type="text" class="form-control" name="description"
+                                   ng-model="tempArticleData.description"/>
+                        </div>
 
-    <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
-    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta.3/js/bootstrap.min.js" integrity="sha384-a5N7Y/aK3qNeh15eJKGWxsqtnX/wWdSZSKp+81YjTmS15nvnvxKHuzaWwXHDli+4" crossorigin="anonymous"></script>
-    </body>
+                        <div class="form-group">
+                            <label>Price</label>
+                            <input type="number" class="form-control" name="price" ng-model="tempArticleData.price"/>
+                        </div>
+                        <a href="javascript:void(0);" class="btn btn-warning" ng-click="checkedFalse()">Cancel</a>
+                        <a href="javascript:void(0);" class="btn btn-success" ng-hide="tempArticleData.articleid"
+                           ng-click="addArticle(tempArticleData)">Add Article</a>
+                        <a href="javascript:void(0);" class="btn btn-success" ng-hide="!tempArticleData.articleid"
+                           ng-click="updateArticle(tempArticleData)">Update Article</a>
+                    </form>
+                </div>
+            </div>
+            <table class="table table-striped">
+                <tr>
+                    <th width="5%">#</th>
+                    <th width="20%">Name</th>
+                    <th width="30%">Brand</th>
+                    <th width="20%">Price</th>
+                    <th width="14%">Description</th>
+                    <th width="10%"></th>
+                </tr>
+                <tr ng-repeat="article in articles">
+                    <td>{{$index + 1}}</td>
+                    <td>{{article.articlename}}</td>
+                    <td>{{article.brand}}</td>
+                    <td>{{article.price}}</td>
+                    <td>{{article.description}}</td>
+                    <td>
+                        <i class="fa fa-pencil-square-o fa-lg" aria-hidden="true" ng-click="editArticle(article)"></i>
+                        <i class="fa fa-trash fa-lg" aria-hidden="true" ng-click="deleteArticle(article)"></i>
+                    </td>
+                </tr>
+            </table>
+        </div>
+    </div>
+</div>
+
+<script src="https://code.jquery.com/jquery-3.2.1.slim.min.js"
+        integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN"
+        crossorigin="anonymous"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js"
+        integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q"
+        crossorigin="anonymous"></script>
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta.3/js/bootstrap.min.js"
+        integrity="sha384-a5N7Y/aK3qNeh15eJKGWxsqtnX/wWdSZSKp+81YjTmS15nvnvxKHuzaWwXHDli+4"
+        crossorigin="anonymous"></script>
+</body>
 </html>

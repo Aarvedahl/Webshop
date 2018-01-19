@@ -17,7 +17,7 @@ angular.module('hello', [])
                 description:article.description
             };
         };
-        
+
         $scope.addArticle = function (articleToAdd) {
            $http({
                 url: '../api/articles',

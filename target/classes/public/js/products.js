@@ -18,8 +18,6 @@ angular.module('hello', [])
             };
         };
 
-        // TODO Add good icons for delete, edit and add
-
         $scope.addArticle = function (articleToAdd) {
            $http({
                 url: '../api/articles',
