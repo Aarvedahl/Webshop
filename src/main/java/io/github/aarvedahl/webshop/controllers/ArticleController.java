@@ -22,24 +22,15 @@ public class ArticleController {
     List<Article> articles;
     List<Articledto> articledtos;
 
-   /* @GetMapping
+    @GetMapping
     public List<Article> getAllArticles() {
         return getArticles();
-    } */
+    }
 
     @PutMapping
     public List<Article> updateFullArticle(@RequestBody Article article) {
         articleRepository.save(article);
         return getArticles();
-    }
-
-    @RequestMapping(method = RequestMethod.GET)
-    public ResponseEntity<List<Article>> getAll() {
-        List<Article> listOfAllCustomers = articleRepository.findAll();
-        if (listOfAllCustomers.size() == 0) {
-            return new ResponseEntity<List<Article>>(HttpStatus.NO_CONTENT);
-        }
-        return new ResponseEntity<List<Article>>(listOfAllCustomers, HttpStatus.OK);
     }
 
     @PatchMapping
@@ -50,7 +41,7 @@ public class ArticleController {
 
     @PostMapping
     public List<Article> addArticle(@RequestBody Article article) {
-       // articleRepository.save(article);
+        articleRepository.save(article);
         return getArticles();
     }
 

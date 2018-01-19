@@ -17,17 +17,53 @@ angular.module('hello', [])
                 description:article.description
             };
         };
-
-        // TODO Add good icons for delete, edit and add
-        // TODO Add ajax calls as well
-
+        
         $scope.addArticle = function (articleToAdd) {
-            console.log("We are supposed to add a article here");
-            console.log(articleToAdd);
-            $http({
+           $http({
                 url: '../api/articles',
                 method: "POST",
                 data: articleToAdd,
+                headers: {
+                    'Content-type': 'application/json'
+                }
+           })
+                .then(function(response) {
+                        // success
+                        $scope.showAlert = true;
+                        $scope.articles = response.data;
+                        $scope.checkedFalse();
+                    },
+                    function(response) {
+                        // failed
+                        console.error(response);
+                    });
+
+        };
+
+        $scope.deleteArticle = function (articleToDelete) {
+            $http({
+                url: '../api/articles',
+                method: "DELETE",
+                data: articleToDelete,
+                headers: {
+                    'Content-type': 'application/json'
+                }
+            })
+                .then(function(response) {
+                        $scope.showAlert = true;
+                        $scope.articles = response.data;
+                    },
+                    function(response) {
+                        // failed
+                        console.error(response);
+                    });
+        };
+
+        $scope.updateArticle = function (articleToUpdate) {
+            $http({
+                url: '../api/articles',
+                method: "PATCH",
+                data: articleToUpdate,
                 headers: {
                     'Content-type': 'application/json'
                 }
@@ -35,29 +71,18 @@ angular.module('hello', [])
                 .then(function(response) {
                         // success
                         $scope.showAlert = true;
+                        $scope.articles = response.data;
+                        $scope.checkedFalse();
                     },
                     function(response) {
                         // failed
                         console.error(response);
                     });
-            $scope.checkedFalse();
-            $scope.tempArticleData = {};
-        };
-
-        $scope.deleteArticle = function (articleToDelete) {
-            console.log("We are supposed to delete a article here");
-            console.log(articleToDelete);
-        };
-
-        $scope.updateArticle = function (articleToUpdate) {
-            console.log("We are supposed to update a article here");
-            console.log(articleToUpdate);
-            $scope.checkedFalse();
-            $scope.tempArticleData = {};
         };
 
         $scope.checkedFalse = function () {
             $scope.checked = false;
+            $scope.tempArticleData = {};
         };
 
         $scope.checkedTrue = function () {

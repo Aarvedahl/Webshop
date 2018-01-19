@@ -8,6 +8,7 @@
         <!-- Bootstrap CSS -->
         <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta.3/css/bootstrap.min.css" integrity="sha384-Zug+QiDoJOrZ5t4lssLdxGhVrurbmBWopoEl+M6BdEfwnCJZtKxi1KgxUyJq13dy" crossorigin="anonymous" />
         <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.5.6/angular.min.js"></script>
+        <script src="https://use.fontawesome.com/d97e4c5e8f.js"></script>
         <script src="../js/products.js"></script>
         <title>Hello, world!</title>
     </head>
@@ -26,32 +27,37 @@
                         </p>
                     </div>
                 </div> -->
-                <div class="panel-heading">Articles <a href="javascript:void(0);" class="glyphicon glyphicon-plus" ng-click="checkedTrue()">Add Article</a></div>
-                <div class="panel-body none formData">
-                    <form class="form" name="articleForm" ng-if="checked">
-                        <div class="form-group">
-                            <label>Articlename</label>
-                            <input type="text" class="form-control" name="articlename" ng-model="tempArticleData.articlename"/>
-                        </div>
-                        <div class="form-group">
-                            <label>Brand</label>
-                            <input type="text" class="form-control" name="brand" ng-model="tempArticleData.brand"/>
-                        </div>
-                        <div class="form-group">
-                            <label>Description</label>
-                            <input type="text" class="form-control" name="description" ng-model="tempArticleData.description"/>
-                        </div>
+                <div class="card">
+                    <div class="card-header">
+                        <h5>Articles</h5>
+                        <i class="fa fa-plus fa-lg" aria-hidden="true" ng-click="checkedTrue()"></i> Add  <span class="sr-only">(current)</span>
+                    </div>
+                    <div class="card-body formData">
+                        <form class="form" name="articleForm" ng-if="checked">
+                            <div class="form-group">
+                                <label>Articlename</label>
+                                <input type="text" class="form-control" name="articlename" ng-model="tempArticleData.articlename"/>
+                            </div>
+                            <div class="form-group">
+                                <label>Brand</label>
+                                <input type="text" class="form-control" name="brand" ng-model="tempArticleData.brand"/>
+                            </div>
+                            <div class="form-group">
+                                <label>Description</label>
+                                <input type="text" class="form-control" name="description" ng-model="tempArticleData.description"/>
+                            </div>
 
-                        <div class="form-group">
-                            <label>Price</label>
-                            <input type="number" class="form-control" name="price" ng-model="tempArticleData.price"/>
-                        </div>
-                        <a href="javascript:void(0);" class="btn btn-warning" ng-click="checkedFalse()">Cancel</a>
-                        <a href="javascript:void(0);" class="btn btn-success" ng-hide="tempArticleData.articleid" ng-click="addArticle(tempArticleData)">Add Article</a>
-                        <a href="javascript:void(0);" class="btn btn-success" ng-hide="!tempArticleData.articleid" ng-click="updateArticle(tempArticleData)">Update Article</a>
-                    </form>
+                            <div class="form-group">
+                                <label>Price</label>
+                                <input type="number" class="form-control" name="price" ng-model="tempArticleData.price"/>
+                            </div>
+                            <a href="javascript:void(0);" class="btn btn-warning" ng-click="checkedFalse()">Cancel</a>
+                            <a href="javascript:void(0);" class="btn btn-success" ng-hide="tempArticleData.articleid" ng-click="addArticle(tempArticleData)">Add Article</a>
+                            <a href="javascript:void(0);" class="btn btn-success" ng-hide="!tempArticleData.articleid" ng-click="updateArticle(tempArticleData)">Update Article</a>
+                        </form>
+                    </div>
                 </div>
-                <table class="table table-striped">
+                  <table class="table table-striped">
                     <tr>
                         <th width="5%">#</th>
                         <th width="20%">Name</th>
@@ -67,8 +73,8 @@
                         <td>{{article.price}}</td>
                         <td>{{article.description}}</td>
                         <td>
-                            <a href="javascript:void(0);" class="glyphicon glyphicon-edit" ng-click="editArticle(article)">EDIT</a>
-                            <a href="javascript:void(0);" class="glyphicon glyphicon-trash" ng-click="deleteArticle(article)">DELETE</a>
+                            <i class="fa fa-pencil-square-o fa-lg" aria-hidden="true" ng-click="editArticle(article)"></i>
+                            <i class="fa fa-trash fa-lg" aria-hidden="true" ng-click="deleteArticle(article)" ></i>
                         </td>
                     </tr>
                 </table>
