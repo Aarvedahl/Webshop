@@ -2,13 +2,11 @@ angular.module('register', [])
     .controller('registerController', function($scope, $http) {
         $scope.showAlert = false;
 
-        $scope.addUsers = function (userdto) {
-            console.log("We are supposed to add this user here");
-            console.log(userdto);
+        $scope.addUsers = function (user) {
             $http({
-                url: '../api/users',
+                url: '../api/users/add',
                 method: "POST",
-                data: userdto,
+                data: user,
                 headers: {
                     'Content-type': 'application/json'
                 }
@@ -16,7 +14,6 @@ angular.module('register', [])
                 .then(function(response) {
                         // success
                         $scope.showAlert = true;
-                        console.log("SUCCESS");
                     },
                     function(response) {
                         // failed

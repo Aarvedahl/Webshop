@@ -88,4 +88,9 @@ angular.module('hello', [])
         $scope.checkedTrue = function () {
             $scope.checked = true;
         };
+
+        $scope.addToCart = function (article) {
+            console.log("this article shall be added to the cart");
+            console.log(article);
+        };
     });

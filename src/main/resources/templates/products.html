@@ -19,7 +19,7 @@
 <div class="container" ng-controller="articles">
     <div class="row">
         <div sec:authorize="hasRole('ROLE_USER')">
-            <div class="col-6" ng-repeat="article in articles">
+            <div class="col-8" ng-repeat="article in articles">
                 <h3>{{article.articlename}}</h3>
                 <h4>{{article.brand}}</h4>
                 <h4>{{article.price}}</h4>

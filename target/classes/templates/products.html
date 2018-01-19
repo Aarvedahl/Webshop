@@ -19,12 +19,12 @@
 <div class="container" ng-controller="articles">
     <div class="row">
         <div sec:authorize="hasRole('ROLE_USER')">
-            <div class="col-6 offset-3" ng-repeat="article in articles">
+            <div class="col-8" ng-repeat="article in articles">
                 <h3>{{article.articlename}}</h3>
                 <h4>{{article.brand}}</h4>
                 <h4>{{article.price}}</h4>
+                <button type="button" class="btn btn-success"><i class="fa fa-shopping-cart" aria-hidden="true" ng-click="addToCart(article)"></i> Buy Now</button>
                 <label>View Details <input type="checkbox" ng-model="checked" ng-init="checked=false"/></label>
-                <button type="button" class="btn btn-success"><i class="fa fa-shopping-cart" aria-hidden="true"></i> Buy Now</button>
                 <div ng-if="checked">
                     <p>
                         {{article.description}}

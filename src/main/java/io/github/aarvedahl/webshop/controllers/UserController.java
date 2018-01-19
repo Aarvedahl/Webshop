@@ -23,7 +23,7 @@ public class UserController {
     List<Users> users;
 
 
-    @PostMapping
+    @PostMapping("/add")
     public void addUser(@RequestBody Userdto userdto) {
         Users user = new Users(userdto.getUsername(), userdto.getPassword(), true);
         userRepository.save(user);
