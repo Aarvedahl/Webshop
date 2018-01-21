@@ -26,7 +26,7 @@ public class Purchase implements Serializable{
     private boolean canceled;
 
     @JsonBackReference
-    @ManyToOne(cascade=CascadeType.MERGE)
+    @ManyToOne
     @JoinColumn(name="userid", referencedColumnName = "userid", nullable = false)
     private Users userid;
 

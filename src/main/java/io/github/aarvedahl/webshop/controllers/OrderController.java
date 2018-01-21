@@ -1,5 +1,6 @@
 package io.github.aarvedahl.webshop.controllers;
 
+import io.github.aarvedahl.webshop.dto.Purchasedto;
 import io.github.aarvedahl.webshop.jpa.Article;
 import io.github.aarvedahl.webshop.jpa.Purchase;
 import io.github.aarvedahl.webshop.jpa.Purchase_article;
@@ -13,7 +14,7 @@ import org.springframework.web.bind.annotation.*;
 import java.util.List;
 
 @RestController
-@RequestMapping("/orders")
+@RequestMapping("/api/orders")
 public class OrderController {
 
     @Autowired OrderRepository orderRepository;
@@ -46,13 +47,21 @@ public class OrderController {
         purchaseRepository.save(purchaseArticle);
     }
 
-    @PatchMapping
+    @PatchMapping("/editorder")
     public void editOrder(@RequestBody OrderArticleWrapper orderArticleWrapper) {
         Purchase purchase = new Purchase(orderArticleWrapper.getPurchasedto().getOrderid(), new Users(orderArticleWrapper.getPurchasedto().getUserid()), orderArticleWrapper.getPurchasedto().getOrderdate(), orderArticleWrapper.getPurchasedto().isCanceled());
         orderRepository.save(purchase);
         Purchase_article purchaseArticle = new Purchase_article(new Purchase(purchase.getOrderid()), new Article(orderArticleWrapper.getArticledto().getArticleid()));
         purchaseRepository.save(purchaseArticle);
     }
+
+    // Fungerade för att t.ex ändra datum eller avbeställa en order
+    @PatchMapping
+    public void editPurchase(@RequestBody Purchasedto purchasedto) {
+        Purchase purchase = new Purchase(purchasedto.getOrderid(), new Users(purchasedto.getUserid()), purchasedto.getOrderdate(), purchasedto.isCanceled());
+        orderRepository.save(purchase);
+    }
+
     /*
     {
         "purchasedto": {
