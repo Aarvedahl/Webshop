@@ -18,25 +18,24 @@
 
 <div class="container" ng-controller="usersController">
     <div class="row">
-     <!--   <div sec:authorize="hasRole('ROLE_ADMIN')"> -->
-            <h2>Users</h2>
+        <!--   <div sec:authorize="hasRole('ROLE_ADMIN')"> -->
+        <h2>Users</h2>
 
-            <table class="table table-striped">
-                <tr>
-                    <th width="5%">#</th>
-                    <th width="20%">Username</th>
-                    <th width="30%">Password</th>
-                    <th width="20%">Enabled</th>
-                    <th width="10%"></th>
-                </tr>
-                <tbody ng-repeat="user in users">
+        <table class="table table-striped">
+            <tr>
+                <th width="5%">#</th>
+                <th width="20%">Username</th>
+                <th width="30%">Password</th>
+                <th width="20%">Enabled</th>
+                <th width="10%"></th>
+            </tr>
+            <tbody ng-repeat="user in users">
                 <tr>
                     <td>{{$index + 1}}</td>
                     <td>{{user.username}}</td>
                     <td>{{user.password}}</td>
                     <td>{{user.enabled}}</td>
                     <td>
-                      <!--  <i class="fa fa-pencil-square-o fa-lg" aria-hidden="true" ng-click="editArticle(article)"></i> -->
                         <i class="fa fa-trash fa-lg" aria-hidden="true" ng-click="removeUser(user)"></i>
                     </td>
                 </tr>
@@ -51,13 +50,16 @@
                     <td>{{order.orderid}}</td>
                     <td><span>{{order.orderdate | date:'medium'}}</span></td>
                     <td>
-                        <span ng-show="!order.canceled"><button type="button" class="btn btn-danger">Avbeställ order</button></span>
-                        <span ng-show="order.canceled"><button type="button" class="btn btn-success">Ångra Avbeställning</button></span>
+                        <span ng-show="!order.canceled"><button type="button" ng-click="cancelOrder(user, order)"
+                                                                class="btn btn-danger">Avbeställ order</button></span>
+                        <span ng-show="order.canceled"><button type="button" class="btn btn-success"
+                                                               ng-click="cancelOrder(user)">Ångra Avbeställning</button></span>
                     </td>
                 </tr>
-                </tbody>
-            </table>
-       <!-- </div> -->
+
+            </tbody>
+        </table>
+        <!-- </div> -->
     </div>
 </div>
 

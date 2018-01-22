@@ -3,6 +3,7 @@ angular.module('webshop', [])
 
         $http.get('http://localhost:8080/api/users').
         then(function(response) {
+            console.log(response.data);
             $scope.users = response.data;
         });
 
@@ -27,6 +28,16 @@ angular.module('webshop', [])
                         console.error(response);
                     });
         };
+
+        $scope.cancelOrder = function (user, order) {
+          console.log("We are supposed to cancel a order here");
+          delete order.articleList;
+          order.userid = user.userid;
+          console.log(order);
+          order.canceled = !order.canceled;
+          console.log(order);
+        };
+
         // TODO Display the articles of each order
         // TODO Click on each user to view their order details and click on each order to view every article
         /* För att avbeställa en order skicka json i detta format
@@ -38,5 +49,25 @@ angular.module('webshop', [])
             "canceled": true
         }
 
+         */
+        /*
+        "orders": [
+            {
+                "orderid": 2,
+                "orderdate": 1515538800000,
+                "canceled": false,
+                "articleList": [
+                    {
+                        "purchaseid": 2,
+                        "articleid": {
+                            "articleid": 7,
+                            "articlename": "Airpods",
+                            "description": "Simply Awesome",
+                            "price": 1749,
+                            "stock": 0,
+                            "brand": "Apple"
+                        }
+                    }
+                ]
          */
     });
