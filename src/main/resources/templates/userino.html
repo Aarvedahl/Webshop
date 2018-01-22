@@ -19,46 +19,31 @@
 <div class="container" ng-controller="usersController">
     <div class="row">
         <!--   <div sec:authorize="hasRole('ROLE_ADMIN')"> -->
-        <h2>Users</h2>
-
-        <table class="table table-striped">
-            <tr>
-                <th width="5%">#</th>
-                <th width="20%">Username</th>
-                <th width="30%">Password</th>
-                <th width="20%">Enabled</th>
-                <th width="10%"></th>
-            </tr>
-            <tbody ng-repeat="user in users">
-                <tr>
-                    <td>{{$index + 1}}</td>
-                    <td>{{user.username}}</td>
-                    <td>{{user.password}}</td>
-                    <td>{{user.enabled}}</td>
-                    <td>
-                        <i class="fa fa-trash fa-lg" aria-hidden="true" ng-click="removeUser(user)"></i>
-                    </td>
-                </tr>
-                <tr ng-show='user.orders.length > 0'>
-                    <th>Orders</th>
-                    <th>Order ID</th>
-                    <th>Order Date</th>
-                    <th>Order Canceled</th>
-                </tr>
-                <tr ng-repeat="order in user.orders">
-                    <td>#</td>
-                    <td>{{order.orderid}}</td>
-                    <td><span>{{order.orderdate | date:'medium'}}</span></td>
-                    <td>
+        <div class="list-group">
+            <h3>Users</h3>
+            <div class="list-group-item" ng-repeat="user in users">
+                <i class="fa fa-trash fa-lg" aria-hidden="true" ng-click="removeUser(user)"></i>
+                <h4>{{user.username}}</h4>
+                <label ng-show='user.orders.length > 0'>View Orders<input type="checkbox" ng-model="checked" ng-init="checked=false" /></label>
+                <div ng-if="checked">
+                    <h6>Orders</h6>
+                    <div class="list-group-item" ng-repeat="order in user.orders">
+                        # {{order.orderid}} <span>{{order.orderdate | date:'medium'}}</span>
                         <span ng-show="!order.canceled"><button type="button" ng-click="cancelOrder(user, order)"
                                                                 class="btn btn-danger">Avbeställ order</button></span>
                         <span ng-show="order.canceled"><button type="button" class="btn btn-success"
                                                                ng-click="cancelOrder(user, order)">Ångra Avbeställning</button></span>
-                    </td>
-                </tr>
+                        <ul>
+                            <h6>Articles</h6>
+                            <li class="list-group-item" ng-repeat="article in order.articleList">
+                                {{article.articleid.brand}} {{article.articleid.articlename}}
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
 
-            </tbody>
-        </table>
         <!-- </div> -->
     </div>
 </div>

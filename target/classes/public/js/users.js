@@ -2,7 +2,6 @@ angular.module('webshop', [])
     .controller('usersController', function ($scope, $http) {
 
         $http.get('http://localhost:8080/api/users').then(function (response) {
-            console.log(response.data);
             $scope.users = response.data;
         });
 
@@ -43,7 +42,6 @@ angular.module('webshop', [])
                 .then(function (response) {
                         // success
                         $http.get('http://localhost:8080/api/users').then(function (response) {
-                            console.log(response.data);
                             $scope.users = response.data;
                         });
                     },
