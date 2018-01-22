@@ -50,9 +50,10 @@ public class UserController {
     }
 
     @DeleteMapping
-    public void removeUser(@RequestBody Userdto userdto) {
+    public List<Users> removeUser(@RequestBody Userdto userdto) {
         Users user = new Users(userdto.getUserid(), userdto.getUsername(), userdto.getPassword(), userdto.isEnabled());
         userRepository.delete(user);
+        return getUsers();
     }
 
 }

@@ -53,7 +53,7 @@
                         <span ng-show="!order.canceled"><button type="button" ng-click="cancelOrder(user, order)"
                                                                 class="btn btn-danger">Avbeställ order</button></span>
                         <span ng-show="order.canceled"><button type="button" class="btn btn-success"
-                                                               ng-click="cancelOrder(user)">Ångra Avbeställning</button></span>
+                                                               ng-click="cancelOrder(user, order)">Ångra Avbeställning</button></span>
                     </td>
                 </tr>
 
