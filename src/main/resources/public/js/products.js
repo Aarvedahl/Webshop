@@ -1,6 +1,7 @@
 angular.module('hello', [])
     .controller('articles', function($scope, $http) {
         $scope.checked = false;
+        var shoppingBasket = [];
 
         $http.get('http://localhost:8080/api/articles').
         then(function(response) {
@@ -92,5 +93,7 @@ angular.module('hello', [])
         $scope.addToCart = function (article) {
             console.log("this article shall be added to the cart");
             console.log(article);
+            shoppingBasket.push(article);
+            console.log(shoppingBasket);
         };
     });

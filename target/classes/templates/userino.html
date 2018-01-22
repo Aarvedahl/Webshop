@@ -24,7 +24,7 @@
             <div class="list-group-item" ng-repeat="user in users">
                 <i class="fa fa-trash fa-lg" aria-hidden="true" ng-click="removeUser(user)"></i>
                 <h4>{{user.username}}</h4>
-                <label ng-show='user.orders.length > 0'>View Details <input type="checkbox" ng-model="checked" ng-init="checked=false" /></label>
+                <label ng-show='user.orders.length > 0'>View Orders<input type="checkbox" ng-model="checked" ng-init="checked=false" /></label>
                 <div ng-if="checked">
                     <h6>Orders</h6>
                     <div class="list-group-item" ng-repeat="order in user.orders">

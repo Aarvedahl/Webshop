@@ -17,22 +17,20 @@
 <body>
 
 <div class="container" ng-controller="articles">
-    <div class="row">
-        <div sec:authorize="hasRole('ROLE_USER')">
-            <div class="col-8" ng-repeat="article in articles">
-                <h3>{{article.articlename}}</h3>
-                <h4>{{article.brand}}</h4>
-                <h4>{{article.price}}</h4>
-                <button type="button" class="btn btn-success"><i class="fa fa-shopping-cart" aria-hidden="true" ng-click="addToCart(article)"></i> Buy Now</button>
-                <label>View Details <input type="checkbox" ng-model="checked" ng-init="checked=false"/></label>
-                <div ng-if="checked">
-                    <p>
-                        {{article.description}}
-                    </p>
-                </div>
+    <div sec:authorize="hasRole('ROLE_USER')">
+        <div class="row">
+            <div class="col-4" ng-repeat="article in articles">
+                <h5>{{article.articlename}}</h5>
+                <small>by {{article.brand}}</small>
+                <h6>{{article.price}} :-</h6>
+                <button type="button" class="btn btn-success" ng-click="addToCart(article)"><i
+                        class="fa fa-shopping-cart" aria-hidden="true"></i> Buy Now
+                </button>
             </div>
         </div>
-        <div sec:authorize="hasRole('ROLE_ADMIN')">
+    </div>
+    <div sec:authorize="hasRole('ROLE_ADMIN')">
+        <div class="row">
             <div class="card">
                 <div class="card-header">
                     <h5>Articles</h5>
@@ -68,6 +66,7 @@
                     </form>
                 </div>
             </div>
+
             <table class="table table-striped">
                 <tr>
                     <th width="5%">#</th>
