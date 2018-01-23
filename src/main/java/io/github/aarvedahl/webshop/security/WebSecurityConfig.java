@@ -20,7 +20,7 @@ public class WebSecurityConfig extends WebSecurityConfigurerAdapter {
     protected void configure(HttpSecurity http) throws Exception {
         http
                 .authorizeRequests()
-                .antMatchers("/", "/home", "/js/**", "/public/js/**", "/register", "/api/users/add", "/api/orders").permitAll()
+                .antMatchers("/", "/home", "/js/**", "/public/js/**", "/register", "/api/users/add").permitAll()
                 .antMatchers("/admin").hasRole("ADMIN")
                 .anyRequest().authenticated()
                 .and()
@@ -37,12 +37,7 @@ public class WebSecurityConfig extends WebSecurityConfigurerAdapter {
 
     @Autowired
     public void configureGlobal(AuthenticationManagerBuilder auth) throws Exception {
-       /* auth
-                .inMemoryAuthentication()
-                .withUser("user").password("password").roles("USER").and()
-                .withUser("admin").password("admin").roles("ADMIN");*/
-
-    	auth.jdbcAuthentication().dataSource(dataSource)
+        auth.jdbcAuthentication().dataSource(dataSource)
     			.usersByUsernameQuery("SELECT username, password, enabled FROM users WHERE username = ?")
     			.authoritiesByUsernameQuery("SELECT username, role FROM user_roles WHERE username = ?");
 

@@ -90,22 +90,38 @@ angular.module('hello', [])
             $scope.checked = true;
         };
 
-        // Visa endast kundvagnen på produkt sidan och visa kundvagnen i en modal?
-        // Och i modalen kan man ta bort produkter från kundvagnen samt checka ut och beställa allting som ligger i kundvagnen
-        // Först behöver vi ta reda på vilken user som är inloggad så ordern kan sätta rätt userid
+        // Först behöver vi ta reda på vilken user som är inloggad så ordern kan sätta rätt userid innan vi kan checka ut en order
         $scope.addToCart = function (article) {
-            console.log("this article shall be added to the cart");
-            console.log(article);
             shoppingBasket.push(article);
-            console.log(shoppingBasket);
         };
 
         $scope.removeFromlist = function (article) {
-            console.log(article);
             shoppingBasket.splice(shoppingBasket.indexOf(article), 1);
         };
 
         $scope.getShoppingCart = function () {
             return shoppingBasket;
+        };
+
+        $scope.checkOut = function () {
+            $http({
+                url: '../api/orders',
+                method: "POST",
+                data: shoppingBasket,
+                headers: {
+                    'Content-type': 'application/json'
+                }
+            })
+                .then(function(response) {
+                        // success
+                        console.log("Purchase successfully made");
+                    },
+                    function(response) {
+                        // failed
+                        console.error(response);
+                        console.log("Purchase not successfully made");
+                    });
+
+            shoppingBasket = [];
         };
     });
