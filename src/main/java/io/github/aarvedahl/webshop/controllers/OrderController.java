@@ -33,17 +33,6 @@ public class OrderController {
         return orders;
     }
 
-    @RequestMapping(value = "/addOrder")
-    public List<Purchase> makeOrder(@RequestBody Purchase purchase, @RequestBody List<Article> articles) {
-        orderRepository.save(purchase);
-        for(Article article: articles) {
-            Purchase_article purchaseArticle = new Purchase_article(new Purchase(purchase.getOrderid()), new Article(article.getArticleid()));
-            purchaseRepository.save(purchaseArticle);
-        }
-        orders = orderRepository.findAll();
-        return orders;
-    }
-
    @PostMapping
    public void makePurchase(@RequestBody List<Article> articles) {
        Authentication auth = SecurityContextHolder.getContext().getAuthentication();
@@ -62,30 +51,5 @@ public class OrderController {
         orderRepository.save(purchase);
     }
 
-    /* Så här får vi tag på användarnamn
 
-        Authentication auth = SecurityContextHolder.getContext().getAuthentication();
-        String name = auth.getName();
-        System.out.println(name);
-     */
-
-    /*
-    {
-        "purchasedto": {
-            "orderdate": 1515538800000,
-            "canceled": false,
-             "userid":4
-        },
-        "articledto": {
-            "articleid": 2,
-            "articlename": "Amazon Echo Dot (2nd Generation)",
-            "description": "Play music from Amazon Music, Spotify, Pandora, iHeartRadio, and TuneIn.",
-            "price": 699,
-            "stock": 72,
-            "brand": "Amazon"
-        }
-    }
-
-
-     */
 }

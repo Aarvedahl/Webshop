@@ -57,14 +57,4 @@ public class ArticleController {
         return articles;
     }
 
-    public List<Articledto> getArticledtos() {
-        if(articledtos == null) {
-            articledtos = new LinkedList<>();
-            for(Article article: getArticles()) {
-                Articledto articledto = new Articledto(article.getArticleid(), article.getArticlename(), article.getDescription(), article.getPrice(), article.getStock(), article.getBrand());
-                articledtos.add(articledto);
-            }
-        }
-        return articledtos;
-    }
 }
